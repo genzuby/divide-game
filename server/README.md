@@ -26,4 +26,4 @@ socket.io
 
 ## endpoints
 
-- basic url : get(http://localhost:5000/users)
+- basic url : http://localhost:5000/users 
