@@ -1,0 +1,16 @@
+export const BASIC_COLORS = {
+  MAIN_COLOR_TAKEAWAY: '#ff8000',
+  POINT_COLOR_PINK: '#f10068',
+  POINT_COLOR_BLUE: '#0054a2',
+  MAIN_TEXT_COLOR_WHITE: '#ffff',
+  LIGHT_GRAY_BG: '#f0f0f0',
+  LIGHT_GRAY: '#d6d6d6',
+  DARK_GRAY: '#4a4a4a',
+};
+
+export const ACTION_COLORS = {
+  ACTION_COLOR_ON_MAIN: '#0c043f',
+  ACTION_COLOR_ON_SUB: '#546dac',
+  ACTION_COLOR_OFF_MAIN: '#ff9b36',
+  ACTION_COLOR_OFF_SUB: '#ffb973',
+};

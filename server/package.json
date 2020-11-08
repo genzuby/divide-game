@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js",
+    "test": "jest --detectOpenHandles \"src/__tests__/.*\\.spec\\.js\"",
+    "lint": "eslint *.js"
+  },
+  "keywords": [],
+  "author": "HJ SHIN",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.4.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.6",
+    "sinon": "^9.2.1",
+    "socket.io-client": "^3.0.0"
+  }
+}

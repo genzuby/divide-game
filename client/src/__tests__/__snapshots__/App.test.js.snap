@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component render renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Game Page render renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Login page render renders correctly 1`] = `ShallowWrapper {}`;
