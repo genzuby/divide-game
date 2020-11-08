@@ -1,4 +1,4 @@
-# Survey API server
+# Divide Game API server
 
 express
 mongodb
