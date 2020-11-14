@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { signupUser } from '../../actions';
 import { v4 as uuidV4 } from 'uuid';
 import LoginForm from './LoginForm';
 
-function SignUp({ signupUser, loginInfo }) {
+export default function SignUp() {
   const [userid, setUserid] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
+  const loginInfo = useSelector(state => state.loginInfo);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (loginInfo.isExistId) {
@@ -33,7 +35,7 @@ function SignUp({ signupUser, loginInfo }) {
       isAvailable: true,
     };
 
-    signupUser(messageBody);
+    dispatch(signupUser(messageBody));
   };
 
   const handleInput = e => {
@@ -53,9 +55,3 @@ function SignUp({ signupUser, loginInfo }) {
     />
   );
 }
-
-const mapStateToProps = ({ loginInfo }) => {
-  return { loginInfo };
-};
-
-export default connect(mapStateToProps, { signupUser })(SignUp);

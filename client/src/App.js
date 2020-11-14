@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Login from './components/Login';
 import Game from './components/Game';
 import { SocketProvider } from './contexts/SocketContext';
 import { GameInfoProvider } from './contexts/GameInfoContext';
 
-function App({ loginInfo }) {
+export default function App() {
   const [playerId, setPlayerId] = useState('');
+  const loginInfo = useSelector(state => state.loginInfo);
 
   useEffect(() => {
     setPlayerId(loginInfo.userId);
@@ -22,9 +23,3 @@ function App({ loginInfo }) {
 
   return <div data-test="appComponent">{playerId ? appmain : <Login />}</div>;
 }
-
-const mapStateToProps = ({ loginInfo }) => {
-  return { loginInfo };
-};
-
-export default connect(mapStateToProps)(App);

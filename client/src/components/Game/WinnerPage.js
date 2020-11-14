@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { endGameSet, selectCompetitor } from '../../actions';
 import { GameInfoContext } from '../../contexts/GameInfoContext';
 import { PADDING, FLEXGROUPROW } from '../../styles/MainStyle';
@@ -8,22 +8,23 @@ import { BASIC_COLORS } from '../../styles/styleConstant';
 
 const { MAIN_TEXT_COLOR_WHITE, POINT_COLOR_BLUE, DARK_GRAY } = BASIC_COLORS;
 
-function WinnerPage({ endGameSet, selectCompetitor }) {
+export default function WinnerPage() {
   const { gameInfo, gameReset } = useContext(GameInfoContext);
+  const dispatch = useDispatch();
   const { myid, winnerId, endGame } = gameInfo;
   const areYouWinner = endGame && winnerId === myid;
 
-  const handleOnClick = async type => {
+  const handleOnClick = type => {
     gameReset(type);
     const messageBody = {
       userId: myid,
       isAvailable: true,
     };
 
-    await selectCompetitor(myid, messageBody);
+    dispatch(selectCompetitor(myid, messageBody));
 
     if (type === 'QUIT_GAME') {
-      endGameSet();
+      dispatch(endGameSet());
     }
   };
 
@@ -69,5 +70,3 @@ function WinnerPage({ endGameSet, selectCompetitor }) {
     </>
   );
 }
-
-export default connect(null, { endGameSet, selectCompetitor })(WinnerPage);

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { signinUser } from '../../actions';
 import LoginForm from './LoginForm';
 
-function SignIn({ checked, signinUser, loginInfo }) {
+export default function SignIn({ checked }) {
   const [userid, setUserid] = useState('');
   const [warningMsg, setWarningMsg] = useState('');
+  const loginInfo = useSelector(state => state.loginInfo);
+  const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
     // insert db with user information
-    if (userid.length > 0) signinUser(userid);
+    if (userid.length > 0) dispatch(signinUser(userid));
     else setWarningMsg('Please input user id');
   };
 
@@ -44,9 +46,3 @@ function SignIn({ checked, signinUser, loginInfo }) {
     />
   );
 }
-
-const mapStateToProps = ({ loginInfo }) => {
-  return { loginInfo };
-};
-
-export default connect(mapStateToProps, { signinUser })(SignIn);
