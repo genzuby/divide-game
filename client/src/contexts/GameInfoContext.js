@@ -9,6 +9,7 @@ import { SocketContext } from './SocketContext';
 
 export const GameInfoContext = createContext();
 
+// make this context smaller
 export const GameInfoProvider = ({ id, children }) => {
   const socket = useContext(SocketContext);
 
