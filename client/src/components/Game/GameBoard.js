@@ -9,13 +9,14 @@ import WinnerPage from './WinnerPage';
 
 function GameBoard() {
   const { gameInfo } = useContext(GameInfoContext);
+  const boardStyle = { backgroundColor: '#fcfcfc', padding: '2.5em 0' };
 
   return (
     <>
       {gameInfo.endGame ? (
         <WinnerPage />
       ) : (
-        <GAMEBODY style={{ backgroundColor: '#fcfcfc', padding: '2.5em 0' }}>
+        <GAMEBODY style={boardStyle}>
           <GameBody />
           <GameInput />
           <CompetitorArea />
